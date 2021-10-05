@@ -27,9 +27,10 @@ class ArchivesController extends Component
 
     protected $listeners = ['getDataArchivesById', 'getArchivesId'];
 
-    public function mount($id)
+    public function mount()
     {
-        $this->jenis_arsip_id = $id;
+        if (!request()->segment(2)) return abort(404);
+        $this->jenis_arsip_id = request()->segment(2);
     }
 
     public function render()
