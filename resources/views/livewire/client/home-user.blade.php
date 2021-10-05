@@ -42,7 +42,7 @@
 
     {{-- visi misi --}}
     <div>
-        <h2 class="text-bold">Visi & Misi</h2>
+        <h2 class="text-bold">Profil Himpunan</h2>
         <div class="card card-stats card-round">
             <div class="card-body ">
                 <h5 class="card-title">Visi</h5>
@@ -58,7 +58,7 @@
     </div>
 
     <div>
-        <h2 class="text-bold">Agenda</h2>
+        <h2 class="text-bold">Informasi Agenda Kegiatan</h2>
         <div class="row">
             @foreach ($agenda as $item)
             <div class="col-md-6">
@@ -99,7 +99,7 @@
         </div>
     </div>
     <div>
-        <h2 class="text-bold">Informasi Kontak</h2>
+        <h2 class="text-bold">Informasi Layanan</h2>
         <div class="card card-stats card-round">
             <div class="card-body ">
                 <ul class="list-group">
