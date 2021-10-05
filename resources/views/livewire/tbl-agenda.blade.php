@@ -31,7 +31,7 @@
                     <x-text-field type="text" name="agenda_nama" label="Nama Agenda" />
                     <x-text-field type="text" name="agenda_tempat" label="Tempat" />
                     <x-text-field type="date" name="agenda_tanggal" label="Tanggal" />
-                    <x-text-field type="date" name="agenda_waktu" label="Waktu" />
+                    <x-text-field type="time" name="agenda_waktu" label="Waktu" />
                     <div wire:ignore class="form-group @error('agenda_deskripsi')has-error has-feedback @enderror">
                         <label for="agenda_deskripsi" class="text-capitalize">Deskripsi</label>
                         <textarea wire:model="agenda_deskripsi" id="agenda_deskripsi" class="form-control"></textarea>
