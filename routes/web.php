@@ -60,10 +60,13 @@ Route::group(['middleware' => ['auth:sanctum', 'verified', 'user.authorization']
     Route::get('/kontak', KontakController::class)->name('kontak');
     Route::get('/agenda', AgendaController::class)->name('agenda');
     Route::get('/anggota', MemberController::class)->name('anggota');
-    Route::get('/arsip', ArchivesController::class)->name('arsip');
+    // Route::get('/arsip', ArchivesController::class)->name('arsip');
     Route::get('/jenis-anggota', JenisAnggotaController::class)->name('jenis-anggota');
     Route::get('/jenis-arsip', JenisArsipController::class)->name('jenis-arsip');
     Route::get('/beasiswa', BeasiswaController::class)->name('beasiswa');
 
     Route::get('/preview/{file?}', PrefviewPdfController::class)->name('preview');
+    Route::get('/arsip/1', ArchivesController::class)->name('arsip.satu');
+    Route::get('/arsip/2', ArchivesController::class)->name('arsip.dua');
+    Route::get('/arsip/3', ArchivesController::class)->name('arsip.tiga');
 });
