@@ -43,6 +43,7 @@ class ArchivesController extends Component
 
     public function store()
     {
+        dd($this->jenis_arsip_id);
         $this->_validate();
         $name = $this->file_arsip_path->getClientOriginalName();
         $this->file_arsip_path->storeAs('upload', $name, 'public');
