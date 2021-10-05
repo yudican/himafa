@@ -52,14 +52,9 @@
                             label="File Arsip" />
                     </div>
                     <div class="modal-footer">
-                        @if ($update_mode)
-                        <button type="button" wire:click='update({{$jenis_arsip_id}})' class="btn btn-primary btn-sm"><i
-                                class="fa fa-check pr-2"></i>Simpan</button>
-                        @else
-                        <button type="button" wire:click='store({{$jenis_arsip_id}})' class="btn btn-primary btn-sm"><i
-                                class="fa fa-check pr-2"></i>Simpan</button>
-                        @endif
 
+                        <button type="button" wire:click={{$update_mode ? 'update' : 'store'}}
+                            class="btn btn-primary btn-sm"><i class="fa fa-check pr-2"></i>Simpan</button>
                         <button class="btn btn-danger btn-sm" wire:click='_reset'><i
                                 class="fa fa-times pr-2"></i>Batal</a>
                     </div>
