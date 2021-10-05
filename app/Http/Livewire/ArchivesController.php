@@ -30,8 +30,7 @@ class ArchivesController extends Component
     public function mount()
     {
         if (!request()->segment(2)) return abort(404);
-        $this->jenis_arsip_id = request()->segment(2);
-        dd(request()->segment(2));
+        $this->jenis_arsip_id = intval(request()->segment(2));
     }
 
     public function render()
@@ -42,9 +41,8 @@ class ArchivesController extends Component
         ]);
     }
 
-    public function store()
+    public function store($jenis_arsip_id)
     {
-        dd($this->jenis_arsip_id);
         $this->_validate();
         $name = $this->file_arsip_path->getClientOriginalName();
         $this->file_arsip_path->storeAs('upload', $name, 'public');
@@ -53,7 +51,7 @@ class ArchivesController extends Component
             'jenis_arsip'  => $this->jenis_arsip,
             'tanggal_arsip'  => $this->tanggal_arsip,
             'file_arsip'  => $name,
-            'jenis_arsip_id'  => request()->segment(2),
+            'jenis_arsip_id'  => $jenis_arsip_id,
         ];
 
         Archives::create($data);
@@ -62,7 +60,7 @@ class ArchivesController extends Component
         return $this->emit('showAlert', ['msg' => 'Data Berhasil Disimpan']);
     }
 
-    public function update()
+    public function update($jenis_arsip_id)
     {
         $this->_validate();
 
@@ -71,7 +69,7 @@ class ArchivesController extends Component
             'jenis_arsip'  => $this->jenis_arsip,
             'tanggal_arsip'  => $this->tanggal_arsip,
             'file_arsip'  => $this->file_arsip,
-            'jenis_arsip_id'  => request()->segment(2),
+            'jenis_arsip_id'  => $jenis_arsip_id,
         ];
         $row = Archives::find($this->tbl_archives_id);
 
