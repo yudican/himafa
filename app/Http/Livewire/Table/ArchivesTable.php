@@ -18,7 +18,7 @@ class ArchivesTable extends LivewireDatatable
 
     public function builder()
     {
-        return Archives::query();
+        return Archives::query()->where('jenis_arsip_id', $this->params);
     }
 
     public function columns()

@@ -27,6 +27,11 @@ class ArchivesController extends Component
 
     protected $listeners = ['getDataArchivesById', 'getArchivesId'];
 
+    public function mount($id)
+    {
+        $this->jenis_arsip_id = $id;
+    }
+
     public function render()
     {
         return view('livewire.tbl-archives', [
@@ -95,7 +100,6 @@ class ArchivesController extends Component
         $rule = [
             'nama_arsip'  => 'required',
             'tanggal_arsip'  => 'required',
-            'jenis_arsip_id'  => 'required',
         ];
 
         return $this->validate($rule);

@@ -25,7 +25,7 @@
             </div>
         </div>
         <div class="col-md-12">
-            <livewire:table.archives-table />
+            <livewire:table.archives-table params="{{$jenis_arsip_id}}" />
         </div>
 
         {{-- Modal form --}}
@@ -41,12 +41,12 @@
                         <x-text-field type="text" name="nama_arsip" label="Nama Arsip" />
                         {{-- <x-text-field type="text" name="jenis_arsip" label="Jenis Arsip" /> --}}
                         <x-text-field type="date" name="tanggal_arsip" label="Tanggal Arsip" />
-                        <x-select name="jenis_arsip_id" label="Jenis Arsip">
+                        {{-- <x-select name="jenis_arsip_id" label="Jenis Arsip">
                             <option value="">Select Jenis Arsip</option>
                             @foreach ($jenis_arsips as $jenis)
                             <option value="{{$jenis->id}}">{{$jenis->nama_jenis_arsip}}</option>
-                            @endforeach
-                        </x-select>
+                        @endforeach
+                        </x-select> --}}
                         <x-input-file file="{{$file_arsip}}"
                             path="{{optional($file_arsip_path)->getClientOriginalName()}}" name="file_arsip_path"
                             label="File Arsip" />
