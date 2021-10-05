@@ -107,35 +107,37 @@
             <div class="container-fluid">
               <ul class="navbar-nav topbar-nav ml-md-auto align-items-center">
                 @if (Auth::check())
+                <li>
+                  <a class="nav-link" id="notifDropdown" title="Login" href="{{ route('dashboard') }}">
+                    <button class=" btn btn-default btn-sm px-4 border-r-2">Dashboard</button>
+                  </a>
+                </li>
                 <li class="nav-item dropdown hidden-caret">
                   <a class="dropdown-toggle profile-pic" data-toggle="dropdown" href="#" aria-expanded="false">
                     <div class="avatar-sm">
                       <img src="{{ Auth::user()->profile_photo_url }}" alt="..." class="avatar-img rounded-circle">
                     </div>
                   </a>
-                  <ul class="dropdown-menu dropdown-user animated fadeIn">
-                    <div class="scroll-wrapper dropdown-user-scroll scrollbar-outer" style="position: relative;">
-                      <div class="dropdown-user-scroll scrollbar-outer scroll-content"
-                        style="height: auto; margin-bottom: 0px; margin-right: 0px; max-height: 0px;">
-                        <li>
-                          <div class="user-box">
-                            <div class="avatar-lg"><img src="{{ Auth::user()->profile_photo_url }}" alt="image profile"
-                                class="avatar-img rounded"></div>
-                            <div class="u-text">
-                              <h4>{{ Auth::user()->name }}</h4>
-                              <p class="text-muted">{{ Auth::user()->email }}</p>
-                              {{-- <a href="profile.html" class="btn btn-xs btn-secondary btn-sm">View Profile</a> --}}
-                            </div>
+                </li>
+
+                <ul class="dropdown-menu dropdown-user animated fadeIn">
+                  <div class="scroll-wrapper dropdown-user-scroll scrollbar-outer" style="position: relative;">
+                    <div class="dropdown-user-scroll scrollbar-outer scroll-content"
+                      style="height: auto; margin-bottom: 0px; margin-right: 0px; max-height: 0px;">
+                      <li>
+                        <div class="user-box">
+                          <div class="avatar-lg"><img src="{{ Auth::user()->profile_photo_url }}" alt="image profile"
+                              class="avatar-img rounded"></div>
+                          <div class="u-text">
+                            <h4>{{ Auth::user()->name }}</h4>
+                            <p class="text-muted">{{ Auth::user()->email }}</p>
+                            {{-- <a href="profile.html" class="btn btn-xs btn-secondary btn-sm">View Profile</a> --}}
                           </div>
-                        </li>
-                        {{-- <li>
-                          <div class="dropdown-divider"></div>
-                          <a class="dropdown-item" href="{{route('transaction')}}">My Transaction</a>
-                        <a class="dropdown-item" href="{{route('schedule')}}">My Schedule</a>
-                        <a class="dropdown-item" href="{{route('active-plan')}}">My Plan</a>
-                </li> --}}
-            </div>
-            {{-- <div class="scroll-element scroll-x" style="">
+                        </div>
+                      </li>
+
+                    </div>
+                    {{-- <div class="scroll-element scroll-x" style="">
                         <div class="scroll-element_outer">
                           <div class="scroll-element_size"></div>
                           <div class="scroll-element_track"></div>
@@ -149,41 +151,42 @@
                           <div class="scroll-bar ui-draggable ui-draggable-handle"></div>
                         </div>
                       </div> --}}
+                  </div>
+                </ul>
+                </li>
+                @else
+                <li class="nav-item ">
+                  <a class="nav-link" id="notifDropdown" title="Login" href="{{route('register-anggota')}}"
+                    style="text-decoration: none;">
+                    <button class=" btn btn-default btn-sm px-4 border-r-2"
+                      style="text-decoration: none;">Daftar</button>
+                  </a>
+                </li>
+                <li class="nav-item ">
+                  <a class="nav-link" id="notifDropdown" title="Login" href="{{ route('login') }}">
+                    <button class=" btn btn-default btn-sm px-4 border-r-2">Login</button>
+                  </a>
+                </li>
+                @endif
+              </ul>
+            </div>
+          </nav>
+          <!-- End Navbar -->
         </div>
-        </ul>
-        </li>
-        @else
-        <li class="nav-item ">
-          <a class="nav-link" id="notifDropdown" title="Login" href="{{route('register-anggota')}}"
-            style="text-decoration: none;">
-            <button class=" btn btn-default btn-sm px-4 border-r-2" style="text-decoration: none;">Daftar</button>
-          </a>
-        </li>
-        <li class="nav-item ">
-          <a class="nav-link" id="notifDropdown" title="Login" href="{{ route('login') }}">
-            <button class=" btn btn-primary btn-sm px-4 border-r-2">Login</button>
-          </a>
-        </li>
-        @endif
-        </ul>
       </div>
-      </nav>
-      <!-- End Navbar -->
     </div>
-  </div>
-  </div>
 
-  <div class="main-panel">
-    <div class="container">{{$slot}}</div>
-  </div>
-  <footer class="footer">
-    <div class="container">
-      <div class="copyright ml-auto">
-        {{date('Y')}}, made with <i class="fa fa-heart heart text-danger"></i> by <a
-          href="http://www.themekita.com">ThemeKita</a>
-      </div>
+    <div class="main-panel">
+      <div class="container">{{$slot}}</div>
     </div>
-  </footer>
+    <footer class="footer">
+      <div class="container">
+        <div class="copyright ml-auto">
+          {{date('Y')}}, made with <i class="fa fa-heart heart text-danger"></i> by <a
+            href="http://www.themekita.com">ThemeKita</a>
+        </div>
+      </div>
+    </footer>
   </div>
 
 
