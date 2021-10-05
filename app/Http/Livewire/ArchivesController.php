@@ -31,6 +31,7 @@ class ArchivesController extends Component
     {
         if (!request()->segment(2)) return abort(404);
         $this->jenis_arsip_id = request()->segment(2);
+        dd(request()->segment(2));
     }
 
     public function render()
