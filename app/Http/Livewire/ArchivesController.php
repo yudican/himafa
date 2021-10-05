@@ -51,7 +51,7 @@ class ArchivesController extends Component
             'jenis_arsip'  => $this->jenis_arsip,
             'tanggal_arsip'  => $this->tanggal_arsip,
             'file_arsip'  => $name,
-            'jenis_arsip_id'  => $this->jenis_arsip_id,
+            'jenis_arsip_id'  => request()->segment(2),
         ];
 
         Archives::create($data);
@@ -69,7 +69,7 @@ class ArchivesController extends Component
             'jenis_arsip'  => $this->jenis_arsip,
             'tanggal_arsip'  => $this->tanggal_arsip,
             'file_arsip'  => $this->file_arsip,
-            'jenis_arsip_id'  => $this->jenis_arsip_id,
+            'jenis_arsip_id'  => request()->segment(2),
         ];
         $row = Archives::find($this->tbl_archives_id);
 
