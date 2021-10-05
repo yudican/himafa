@@ -23,7 +23,9 @@
                 <x-select name="jenis_anggota_id" label="Jenis Anggota">
                     <option value="">Select Jenis Anggota</option>
                     @foreach ($jenis_anggota as $jenis)
+                    @if ($jenis == 'anggota')
                     <option value="{{$jenis->id}}">{{$jenis->nama_jenis}}</option>
+                    @endif
                     @endforeach
                 </x-select>
                 <x-select name="jenis_kelamin" label="Jenis Kelamin">
