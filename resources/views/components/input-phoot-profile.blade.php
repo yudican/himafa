@@ -6,7 +6,7 @@
       @if ($path)
       <img id="image-preview" width="150" src="{{ $path }}" alt="your image" />
       @else
-      <img id="image-preview" width="150" src="{{ asset('storage/'.$foto) }}" alt="your image" />
+      <img id="image-preview" width="150" src="{{ $foto }}" alt="your image2" />
       @endif
 
       @else
