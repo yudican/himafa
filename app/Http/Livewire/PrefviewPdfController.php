@@ -10,7 +10,6 @@ class PrefviewPdfController extends Component
 
   public function mount($file = null)
   {
-    dd($file);
     if (!$file) return abort(404);
 
     return response()->file(storage_path('upload/' . $file));

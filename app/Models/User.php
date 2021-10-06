@@ -32,6 +32,7 @@ class User extends Authenticatable
         'name',
         'email',
         'password',
+        'profile_photo_path',
     ];
 
     /**
@@ -97,5 +98,15 @@ class User extends Authenticatable
     {
         $role_id = $this->role->id;
         return $this->role->menus()->where('show_menu', 1)->where('parent_id')->orderBy('menu_order', 'ASC')->get();
+    }
+
+    /**
+     * Get the member associated with the User
+     *
+     * @return \Illuminate\Database\Eloquent\Relations\HasOne
+     */
+    public function member()
+    {
+        return $this->hasOne(Member::class);
     }
 }

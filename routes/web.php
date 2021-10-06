@@ -13,6 +13,9 @@ use App\Http\Livewire\Informasi\BeasiswaController;
 use App\Http\Livewire\KontakController;
 use App\Http\Livewire\Master\JenisAnggotaController;
 use App\Http\Livewire\Master\JenisArsipController;
+use App\Http\Livewire\Member\InformasiLayanan;
+use App\Http\Livewire\Member\ProfileOrganisasi;
+use App\Http\Livewire\Member\UpdateProfile;
 use App\Http\Livewire\MemberController;
 use App\Http\Livewire\OrganizationProfileController;
 use App\Http\Livewire\PrefviewPdfController;
@@ -69,4 +72,8 @@ Route::group(['middleware' => ['auth:sanctum', 'verified', 'user.authorization']
     Route::get('/arsip/1', ArchivesController::class)->name('arsip.satu');
     Route::get('/arsip/2', ArchivesController::class)->name('arsip.dua');
     Route::get('/arsip/3', ArchivesController::class)->name('arsip.tiga');
+
+    Route::get('/update-profile', UpdateProfile::class)->name('update-profile');
+    Route::get('/informasi-layanan', InformasiLayanan::class)->name('informasi-layanan');
+    Route::get('/profile-organisasi', ProfileOrganisasi::class)->name('profile-organisasi');
 });

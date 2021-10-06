@@ -90,89 +90,33 @@
   <div class="wrapper">
 
     <div class="main-header shadow-sm" data-background-color="white">
-      <div class="nav-top">
-        <div class="container d-flex flex-row">
-          <!-- Logo Header -->
-          <a id="notifDropdown" class="topbar-toggler more" title="Login" href="#">
+      <div class="container">
+        <nav class="navbar navbar-expand-lg">
+          <img src="{{asset('storage/'.$profile->logo)}}" height="50" alt="navbar brand" class="navbar-brand">
+          <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
             <i class="fas fa-bars"></i>
-          </a>
-          <a href="{{url('/')}}" class="d-flex align-items-center">
-            <img src="{{asset('storage/'.$profile->logo)}}" height="50" alt="navbar brand" class="navbar-brand">
-          </a>
-          <!-- End Logo Header -->
+          </button>
 
-          <!-- Navbar Header -->
-          <nav class="navbar navbar-header navbar-expand-lg" data-background-color="blue2">
-
-            <div class="container-fluid">
-              <ul class="navbar-nav topbar-nav ml-md-auto align-items-center">
-                @if (Auth::check())
-                <li>
-                  <a class="nav-link" id="notifDropdown" title="Login" href="{{ route('dashboard') }}">
-                    <button class=" btn btn-default btn-sm px-4 border-r-2">Dashboard</button>
-                  </a>
-                </li>
-                <li class="nav-item dropdown hidden-caret">
-                  <a class="dropdown-toggle profile-pic" data-toggle="dropdown" href="#" aria-expanded="false">
-                    <div class="avatar-sm">
-                      <img src="{{ Auth::user()->profile_photo_url }}" alt="..." class="avatar-img rounded-circle">
-                    </div>
-                  </a>
-                </li>
-
-                <ul class="dropdown-menu dropdown-user animated fadeIn">
-                  <div class="scroll-wrapper dropdown-user-scroll scrollbar-outer" style="position: relative;">
-                    <div class="dropdown-user-scroll scrollbar-outer scroll-content"
-                      style="height: auto; margin-bottom: 0px; margin-right: 0px; max-height: 0px;">
-                      <li>
-                        <div class="user-box">
-                          <div class="avatar-lg"><img src="{{ Auth::user()->profile_photo_url }}" alt="image profile"
-                              class="avatar-img rounded"></div>
-                          <div class="u-text">
-                            <h4>{{ Auth::user()->name }}</h4>
-                            <p class="text-muted">{{ Auth::user()->email }}</p>
-                            {{-- <a href="profile.html" class="btn btn-xs btn-secondary btn-sm">View Profile</a> --}}
-                          </div>
-                        </div>
-                      </li>
-
-                    </div>
-                    {{-- <div class="scroll-element scroll-x" style="">
-                        <div class="scroll-element_outer">
-                          <div class="scroll-element_size"></div>
-                          <div class="scroll-element_track"></div>
-                          <div class="scroll-bar ui-draggable ui-draggable-handle"></div>
-                        </div>
-                      </div>
-                      <div class="scroll-element scroll-y" style="">
-                        <div class="scroll-element_outer">
-                          <div class="scroll-element_size"></div>
-                          <div class="scroll-element_track"></div>
-                          <div class="scroll-bar ui-draggable ui-draggable-handle"></div>
-                        </div>
-                      </div> --}}
-                  </div>
-                </ul>
-                </li>
-                @else
-                <li class="nav-item ">
-                  <a class="nav-link" id="notifDropdown" title="Login" href="{{route('register-anggota')}}"
-                    style="text-decoration: none;">
-                    <button class=" btn btn-default btn-sm px-4 border-r-2"
-                      style="text-decoration: none;">Daftar</button>
-                  </a>
-                </li>
-                <li class="nav-item ">
-                  <a class="nav-link" id="notifDropdown" title="Login" href="{{ route('login') }}">
-                    <button class=" btn btn-default btn-sm px-4 border-r-2">Login</button>
-                  </a>
-                </li>
-                @endif
-              </ul>
-            </div>
-          </nav>
-          <!-- End Navbar -->
-        </div>
+          <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            @if (!Auth::check())
+            <ul class="navbar-nav ml-auto">
+              <li class="nav-item text-center">
+                <a class="nav-link" href="{{route('register-anggota')}}"><strong>Daftar</strong></a>
+              </li>
+              <li class="nav-item text-center">
+                <a class="nav-link" href="{{ route('login') }}"><strong>Login</strong></a>
+              </li>
+            </ul>
+            @else
+            <ul class="navbar-nav ml-auto">
+              <li class="nav-item">
+                <a class="nav-link" href="{{route('dashboard')}}">Dashboard</a>
+              </li>
+            </ul>
+            @endif
+          </div>
+        </nav>
       </div>
     </div>
 
