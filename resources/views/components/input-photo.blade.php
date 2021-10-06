@@ -6,11 +6,11 @@
       @if ($path)
       <img id="image-preview" width="150" src="{{ $path }}" alt="your image" />
       @else
-      @if (isset($url))
+      @isset($foto)
       <img id="image-preview" width="150" src="{{ $foto }}" alt="your image" />
       @else
       <img id="image-preview" width="150" src="{{ asset('storage/'.$foto) }}" alt="your image" />
-      @endif
+      @endisset
 
       @endif
 
