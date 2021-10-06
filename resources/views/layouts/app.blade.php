@@ -117,7 +117,8 @@
                     <div class="user">
                         <div class="avatar-sm float-left mr-2">
                             @if (Auth::user()->role->role_type == 'member')
-                            <img src="{{Auth::user()->profile_photo_path}}" alt="..." class="avatar-img rounded-circle">
+                            <img src="{{asset('storage/'.Auth::user()->profile_photo_path)}}" alt="..."
+                                class="avatar-img rounded-circle">
                             @else
                             <img src="{{Auth::user()->profile_photo_url}}" alt="..." class="avatar-img rounded-circle">
                             @endif
