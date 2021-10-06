@@ -8,7 +8,6 @@
       @else
       <img id="image-preview" width="150" src="{{ $foto }}" alt="your image2" />
       @endif
-
       @else
       @if ($path)
       <img id="image-preview" width="150" src="{{ $path }}" alt="your image" />
