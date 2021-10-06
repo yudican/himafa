@@ -105,7 +105,7 @@ class UpdateProfile extends Component
         $this->nim = $member->nim;
         $this->nama_bank = $member->nama_bank;
         $this->no_rekening = $member->no_rekening;
-        $this->profile_photo = $this->user->profile_photo_path ?? Auth::user()->profile_photo_url;
+        $this->profile_photo = $user->profile_photo_path ?? Auth::user()->profile_photo_url;
     }
 
     public function _validate()
