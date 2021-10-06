@@ -12,12 +12,14 @@
         <div class="card-body row">
             <div class="col-md-6">
                 <x-input-photo foto="{{$profile_photo}}" path="{{optional($profile_photo_path)->temporaryUrl()}}"
-                    name="profile_photo_path" label="Foto Profile" url />
-                <x-text-field type="text" name="nama" label="Nama Lengkap" />
-                <x-text-field type="text" name="email" label="Email" />
-                <x-text-field type="text" name="nim" label="Nim" />
-                <x-text-field type="text" name="tempat_lahir" label="Tempat Lahir" />
-                <x-text-field type="date" name="tanggal_lahir" label="Tanggal Lahir" />
+                    name="profile_photo_path" label="Foto Profile" @if (!auth()->user()->profile_photo_url)
+                    url
+                    @endif />
+                    <x-text-field type="text" name="nama" label="Nama Lengkap" />
+                    <x-text-field type="text" name="email" label="Email" />
+                    <x-text-field type="text" name="nim" label="Nim" />
+                    <x-text-field type="text" name="tempat_lahir" label="Tempat Lahir" />
+                    <x-text-field type="date" name="tanggal_lahir" label="Tanggal Lahir" />
             </div>
             <div class="col-md-6">
                 <x-select name="agama_lahir" label="Agama Lahir">
