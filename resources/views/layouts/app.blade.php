@@ -116,7 +116,11 @@
                 <div class="sidebar-content">
                     <div class="user">
                         <div class="avatar-sm float-left mr-2">
+                            @if (Auth::user()->role->role_type == 'member')
+                            <img src="{{Auth::user()->profile_photo_path}}" alt="..." class="avatar-img rounded-circle">
+                            @else
                             <img src="{{Auth::user()->profile_photo_url}}" alt="..." class="avatar-img rounded-circle">
+                            @endif
                         </div>
                         <div class="info">
                             <a data-toggle="collapse" href="#collapseExample" aria-expanded="true">
